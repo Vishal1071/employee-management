@@ -27,7 +27,7 @@ export default function EmployeeDeleteButton({ id }: { id: number }) {
 
     return (
         <>
-            <button onClick={handleDelete} className="bg-red-600 text-white px-3 py-1 rounded">
+            <button onClick={handleDelete} className="bg-red-600 text-white px-3 py-0.5 rounded">
                 Delete
             </button>
         </>
