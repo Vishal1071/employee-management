@@ -6,31 +6,6 @@ interface Props {
     params: Promise<{ id: string }>
 }
 
-// export async function GET(request: Request, {params}: Props){
-//     try {
-//         const { id } = await params;
-
-//         const employee = await prisma.employee.findUnique({
-//             where:{
-//                 id: Number(id),
-//             },
-//         })
-
-//         return NextResponse.json(employee);
-
-//     } catch (error) {
-//         console.error(error);
-//         return NextResponse.json(
-//             {
-//                 success: false,
-//                 message: error instanceof Error ? error.message : "Unknown Error",
-//             },
-//             {
-//                 status:500
-//             }
-//         )
-//     }
-// }
 
 export async function PUT(request: Request, { params }: Props) {
     try {
