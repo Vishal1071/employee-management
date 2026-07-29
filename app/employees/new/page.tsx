@@ -1,4 +1,4 @@
-import EmployeeForm from "./EmployeeForm";
+import EmployeeForm from "@/app/components/EmployeeForm";
 
 export default function NewEmployes() {
     return (
