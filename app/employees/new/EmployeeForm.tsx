@@ -3,7 +3,8 @@
 import { Formik } from "formik"
 import * as Yup from "yup"
 import api from "@/app/lib/axios"
-import { strict } from "assert"
+import { useRouter } from "next/navigation"
+
 
 const employeeSchema = Yup.object().shape({
     name: Yup.string()
@@ -24,6 +25,7 @@ const employeeSchema = Yup.object().shape({
 
 
 const EmployeeForm = () => {
+    const router = useRouter()
 
     const onSubmit = async (value: {
         name: string;
@@ -35,10 +37,11 @@ const EmployeeForm = () => {
     ) => {
         try {
             const res = await api.post('/employees', value);
-            
+
             if(res.status === 201){
                 alert("Employee create successfully")
                 resetForm();
+                router.push("/employees");
             }
         } catch (error) {
             console.error(error);
@@ -94,7 +97,7 @@ const EmployeeForm = () => {
                     </div>
 
                     <div>
-                        <label>Deoartmant</label>
+                        <label>Department</label>
                         <input
                             type="text"
                             name="department"

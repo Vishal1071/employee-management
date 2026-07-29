@@ -1,16 +1,16 @@
 import { prisma } from "@/app/lib/prisma";
 import { NextResponse } from 'next/server'
-import { date } from "yup";
 
-export default async function POST(request: Request){
+
+export async function POST(request: Request){
     try {
         const body = await request.json();
 
         const employee = await prisma.employee.create({
-            date: {
+            data: {
                 name: body.name,
                 email: body.email,
-                departmant: body.departmant,
+                department: body.department,
                 salary: Number(body.salary),
             }
         })
